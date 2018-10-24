@@ -22,10 +22,10 @@ app.use((req,res,next) => {
   next();
 });
 
-app.use((req,res,next) => {
+/*app.use((req,res,next) => {
   res.render('maintenance.hbs');
   next();
-});
+});*/
 
 hbs.registerHelper('getCurrentYear',() => {
   return new Date().getFullYear();
