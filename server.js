@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+const herokuPort = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname+'/views/partials');
 app.set('view engine','hbs');
 app.use(express.static(__dirname+'/public'));
@@ -46,6 +48,6 @@ app.get('/about',(req,res) => {
 app.get('/bad',(req,res) => {
   res.send({errorMessage:'Unable to fulfill request'});
 })
-app.listen(3000,() => {
-  console.log('Server is up on port 3000');
+app.listen(herokuPort,() => {
+  console.log(`Server is up on port ${herokuPort}`);
 });
