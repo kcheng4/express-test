@@ -37,7 +37,7 @@ hbs.registerHelper('screamIt',(text) => {
 app.get('/',(req,res) => {
   //res.send('<h1>Whad up?</h1>');
   res.render('home.hbs',{
-    pageTitle:'About Page',
+    pageTitle:'Home',
     welcomeMessage:'Welcome foolios'
   });
 });
@@ -48,7 +48,11 @@ app.get('/about',(req,res) => {
 
 app.get('/bad',(req,res) => {
   res.send({errorMessage:'Unable to fulfill request'});
-})
+});
+
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{pageTitle:'Projects'});
+});
 app.listen(herokuPort,() => {
   console.log(`Server is up on port ${herokuPort}`);
 });
